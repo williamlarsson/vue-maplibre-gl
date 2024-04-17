@@ -23,10 +23,10 @@
 				</mgl-custom-control>
 				<mgl-style-switch-control :map-styles="mapStyles" :position="controlPosition"/>
 
-				<mgl-marker :coordinates="markerCoordinates" color="#cc0000" :scale="0.5"/>
-				<MglPopup :coordinates="markerCoordinates" @close="onClose">
+				<mgl-marker :coordinates="markerCoordinates" color="#cc0000" :scale="1.2" />
+				<mgl-popup :coordinates="popupCoordinates" >
 					<p>I'm a popup</p>
-				</MglPopup>
+				</mgl-popup>
 
 				<mgl-geo-json-source source-id="geojson" :data="geoJsonSource.data">
 					<mgl-line-layer
@@ -126,6 +126,7 @@
 				  showCustomControl = ref(true),
 				  loaded            = ref(0),
 				  markerCoordinates = ref<LngLatLike>([ 13.377507, 52.516267 ]),
+				  popupCoordinates = ref<LngLatLike>([ 5.277507, 52.516267 ]),
 				  geoJsonSource     = ref({
 					  show: true,
 					  data: <FeatureCollection>{
@@ -189,7 +190,7 @@
 			}
 
 			return {
-				showCustomControl, loaded, map, mapVersion, markerCoordinates, geoJsonSource, onLoad, onMouseenter, setLanguage,
+				showCustomControl, loaded, map, mapVersion, markerCoordinates, popupCoordinates, geoJsonSource, onLoad, onMouseenter, setLanguage,
 				isZooming                 : ref(false),
 				controlPosition           : ref(Position.TOP_LEFT),
 				showMap                   : ref(true),
@@ -224,12 +225,7 @@
 				} as CircleLayerSpecification['paint']
 			};
 		},
-		methods: {
-			onClose() {
-				console.log("onClose")
-				
-			}
-		},
+	
 	});
 </script>
 
