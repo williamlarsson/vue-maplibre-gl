@@ -6,7 +6,7 @@
 var pe = Object.defineProperty;
 var Se = (e, t, r) => t in e ? pe(e, t, { enumerable: !0, configurable: !0, writable: !0, value: r }) : e[t] = r;
 var L = (e, t, r) => (Se(e, typeof t != "symbol" ? t + "" : t, r), r);
-import { reactive as ie, defineComponent as p, markRaw as ue, getCurrentInstance as k, shallowRef as Q, ref as z, provide as A, watch as m, toRef as v, onMounted as me, onBeforeUnmount as H, h as w, unref as J, nextTick as ne, inject as s, createCommentVNode as M, Teleport as ge, warn as _, createTextVNode as ce } from "vue";
+import { reactive as ie, defineComponent as p, markRaw as ue, getCurrentInstance as z, shallowRef as Q, ref as k, provide as A, watch as m, toRef as v, onMounted as me, onBeforeUnmount as H, h as w, unref as J, nextTick as ne, inject as s, createCommentVNode as M, Teleport as ge, warn as _, createTextVNode as ce } from "vue";
 import { Map as be, AttributionControl as Le, FullscreenControl as Oe, GeolocateControl as Ae, NavigationControl as Re, ScaleControl as Ee, Marker as Me, Popup as Ie } from "maplibre-gl";
 import Ne from "mitt";
 const O = Symbol("map"), T = Symbol("isLoaded"), j = Symbol("isInitialized"), I = Symbol("componentId"), N = Symbol("sourceId"), G = Symbol("sourceLayerRegistry"), le = Symbol("emitter"), fe = Symbol("marker");
@@ -154,10 +154,10 @@ function Ce(e, t, r = ye) {
 function xe(e, t = 250, r = !1) {
   let o;
   function a() {
-    const i = arguments, l = () => {
+    const i = arguments, n = () => {
       o = void 0, r !== !0 && e.apply(this, i);
     };
-    clearTimeout(o), r === !0 && o === void 0 && e.apply(this, i), o = window.setTimeout(l, t);
+    clearTimeout(o), r === !0 && o === void 0 && e.apply(this, i), o = window.setTimeout(n, t);
   }
   return a.cancel = () => {
     clearTimeout(o);
@@ -260,7 +260,7 @@ const ve = {
 new Set(Object.values(ve));
 new Set(Object.values(ve));
 function oe(e, t) {
-  const r = e.getStyle().layers, o = /^\s*{\s*name\s*(:\s*(\S*))?\s*}$/, a = /^\s*name\s*(:\s*(\S*))?\s*$/, i = /^\s*{\s*name\s*(:\s*(\S*))?\s*}(\s*){\s*name\s*(:\s*(\S*))?\s*}$/, l = /^(.*)({\s*name\s*(:\s*(\S*))?\s*})(.*)$/, d = t ? `name:${t}` : "name", u = [
+  const r = e.getStyle().layers, o = /^\s*{\s*name\s*(:\s*(\S*))?\s*}$/, a = /^\s*name\s*(:\s*(\S*))?\s*$/, i = /^\s*{\s*name\s*(:\s*(\S*))?\s*}(\s*){\s*name\s*(:\s*(\S*))?\s*}$/, n = /^(.*)({\s*name\s*(:\s*(\S*))?\s*})(.*)$/, d = t ? `name:${t}` : "name", u = [
     "case",
     ["has", d],
     ["get", d],
@@ -275,14 +275,14 @@ function oe(e, t) {
     if (Array.isArray(h) && h.length >= 2 && h[0].trim().toLowerCase() === "concat") {
       const b = h.slice();
       for (let f = 0; f < h.length; f += 1) {
-        const n = h[f];
-        if ((typeof n == "string" || n instanceof String) && o.exec(n.toString())) {
+        const l = h[f];
+        if ((typeof l == "string" || l instanceof String) && o.exec(l.toString())) {
           b[f] = u;
           break;
-        } else if (Array.isArray(n) && n.length >= 2 && n[0].trim().toLowerCase() === "get" && a.exec(n[1].toString())) {
+        } else if (Array.isArray(l) && l.length >= 2 && l[0].trim().toLowerCase() === "get" && a.exec(l[1].toString())) {
           b[f] = u;
           break;
-        } else if (Array.isArray(n) && n.length === 4 && n[0].trim().toLowerCase() === "case") {
+        } else if (Array.isArray(l) && l.length === 4 && l[0].trim().toLowerCase() === "case") {
           b[f] = u;
           break;
         }
@@ -300,7 +300,7 @@ function oe(e, t) {
     } else if ((typeof h == "string" || h instanceof String) && (C = i.exec(h.toString())) !== null) {
       const b = `{${d}}${C[3]}{name${C[4] || ""}}`;
       e.setLayoutProperty(S.id, "text-field", b);
-    } else if ((typeof h == "string" || h instanceof String) && (C = l.exec(h.toString())) !== null) {
+    } else if ((typeof h == "string" || h instanceof String) && (C = n.exec(h.toString())) !== null) {
       const b = `${C[1]}{${d}}${C[5]}`;
       e.setLayoutProperty(S.id, "text-field", b);
     }
@@ -412,62 +412,62 @@ const we = /* @__PURE__ */ p({
   ],
   slots: Object,
   setup(e, t) {
-    const r = ue(k()), o = Q(), a = Q(), i = z(!1), l = z(!1), d = z(!1), u = /* @__PURE__ */ new Map(), R = Ne(), S = Ce(r, a, e.mapKey);
+    const r = ue(z()), o = Q(), a = Q(), i = k(!1), n = k(!1), d = k(!1), u = /* @__PURE__ */ new Map(), R = Ne(), S = Ce(r, a, e.mapKey);
     let B;
-    A(O, a), A(T, l), A(j, i), A(I, r.uid), A(N, ""), A(le, R), m(v(e, "bearing"), (n) => {
+    A(O, a), A(T, n), A(j, i), A(I, r.uid), A(N, ""), A(le, R), m(v(e, "bearing"), (l) => {
       var c;
-      n && ((c = a.value) == null || c.setBearing(n));
-    }), m(v(e, "bounds"), (n) => {
+      l && ((c = a.value) == null || c.setBearing(l));
+    }), m(v(e, "bounds"), (l) => {
       var c;
-      n && ((c = a.value) == null || c.fitBounds(n, e.fitBoundsOptions));
-    }), m(v(e, "center"), (n) => {
+      l && ((c = a.value) == null || c.fitBounds(l, e.fitBoundsOptions));
+    }), m(v(e, "center"), (l) => {
       var c;
-      n && ((c = a.value) == null || c.setCenter(n));
-    }), m(v(e, "maxBounds"), (n) => {
+      l && ((c = a.value) == null || c.setCenter(l));
+    }), m(v(e, "maxBounds"), (l) => {
       var c;
-      n && ((c = a.value) == null || c.setMaxBounds(n));
-    }), m(v(e, "maxPitch"), (n) => {
+      l && ((c = a.value) == null || c.setMaxBounds(l));
+    }), m(v(e, "maxPitch"), (l) => {
       var c;
-      n && ((c = a.value) == null || c.setMaxPitch(n));
-    }), m(v(e, "maxZoom"), (n) => {
+      l && ((c = a.value) == null || c.setMaxPitch(l));
+    }), m(v(e, "maxZoom"), (l) => {
       var c;
-      n && ((c = a.value) == null || c.setMaxZoom(n));
-    }), m(v(e, "minPitch"), (n) => {
+      l && ((c = a.value) == null || c.setMaxZoom(l));
+    }), m(v(e, "minPitch"), (l) => {
       var c;
-      n && ((c = a.value) == null || c.setMinPitch(n));
-    }), m(v(e, "minZoom"), (n) => {
+      l && ((c = a.value) == null || c.setMinPitch(l));
+    }), m(v(e, "minZoom"), (l) => {
       var c;
-      n && ((c = a.value) == null || c.setMinZoom(n));
-    }), m(v(e, "pitch"), (n) => {
+      l && ((c = a.value) == null || c.setMinZoom(l));
+    }), m(v(e, "pitch"), (l) => {
       var c;
-      n && ((c = a.value) == null || c.setPitch(n));
-    }), m(v(e, "renderWorldCopies"), (n) => {
+      l && ((c = a.value) == null || c.setPitch(l));
+    }), m(v(e, "renderWorldCopies"), (l) => {
       var c;
-      n && ((c = a.value) == null || c.setRenderWorldCopies(n));
-    }), m(v(e, "mapStyle"), (n) => {
+      l && ((c = a.value) == null || c.setRenderWorldCopies(l));
+    }), m(v(e, "mapStyle"), (l) => {
       var c;
-      n && ((c = a.value) == null || c.setStyle(n));
-    }), m(v(e, "transformRequest"), (n) => {
+      l && ((c = a.value) == null || c.setStyle(l));
+    }), m(v(e, "transformRequest"), (l) => {
       var c;
-      n && ((c = a.value) == null || c.setTransformRequest(n));
-    }), m(v(e, "zoom"), (n) => {
+      l && ((c = a.value) == null || c.setTransformRequest(l));
+    }), m(v(e, "zoom"), (l) => {
       var c;
-      n && ((c = a.value) == null || c.setZoom(n));
-    }), m(v(e, "zoom"), (n) => {
+      l && ((c = a.value) == null || c.setZoom(l));
+    }), m(v(e, "zoom"), (l) => {
       var c;
-      n && ((c = a.value) == null || c.setZoom(n));
-    }), m(v(e, "language"), (n) => {
-      d.value && a.value && S.language !== (n || null) && (oe(a.value, n || ""), S.language = n || null);
-    }), m(v(S, "language"), (n) => {
-      d.value && a.value && oe(a.value, n || "");
+      l && ((c = a.value) == null || c.setZoom(l));
+    }), m(v(e, "language"), (l) => {
+      d.value && a.value && S.language !== (l || null) && (oe(a.value, l || ""), S.language = l || null);
+    }), m(v(S, "language"), (l) => {
+      d.value && a.value && oe(a.value, l || "");
     });
     function h() {
       d.value = !0, e.language ? S.language = e.language : S.language && oe(a.value, e.language || "");
     }
     function C() {
       S.isMounted = !0;
-      const n = Object.keys(e).filter((c) => e[c] !== void 0 && P.MAP_OPTION_KEYS.indexOf(c) !== -1).reduce((c, V) => (c[V === "mapStyle" ? "style" : V] = J(e[V]), c), { container: o.value });
-      if (a.value = ue(new be(n)), S.map = a.value, i.value = !0, u.set("__load", () => (l.value = !0, S.isLoaded = !0)), a.value.once("styledata", h), a.value.on("load", u.get("__load")), r.vnode.props) {
+      const l = Object.keys(e).filter((c) => e[c] !== void 0 && P.MAP_OPTION_KEYS.indexOf(c) !== -1).reduce((c, V) => (c[V === "mapStyle" ? "style" : V] = J(e[V]), c), { container: o.value });
+      if (a.value = ue(new be(l)), S.map = a.value, i.value = !0, u.set("__load", () => (n.value = !0, S.isLoaded = !0)), a.value.once("styledata", h), a.value.on("load", u.get("__load")), r.vnode.props) {
         for (let c = 0, V = P.MAP_EVENT_TYPES.length; c < V; c++)
           if (r.vnode.props["onMap:" + P.MAP_EVENT_TYPES[c]]) {
             const se = P.createEventHandler(r, a.value, t, "map:" + P.MAP_EVENT_TYPES[c]);
@@ -477,10 +477,10 @@ const we = /* @__PURE__ */ p({
       a.value.getCanvas().addEventListener("webglcontextlost", f);
     }
     async function b() {
-      S.isMounted = !1, S.isLoaded = !1, l.value = !1, a.value && (a.value.getCanvas().removeEventListener("webglcontextlost", f), a.value._controls.forEach((n) => {
-        a.value.removeControl(n);
-      }), i.value = !1, u.forEach((n, c) => {
-        a.value.off(c.startsWith("__") ? c.substring(2) : c, n);
+      S.isMounted = !1, S.isLoaded = !1, n.value = !1, a.value && (a.value.getCanvas().removeEventListener("webglcontextlost", f), a.value._controls.forEach((l) => {
+        a.value.removeControl(l);
+      }), i.value = !1, u.forEach((l, c) => {
+        a.value.off(c.startsWith("__") ? c.substring(2) : c, l);
       }), a.value.remove());
     }
     function f() {
@@ -559,16 +559,16 @@ const Te = /* @__PURE__ */ p({
   },
   slots: Object,
   setup(e, { slots: t }) {
-    const r = s(O), o = s(j), a = z(!1), i = new te(a, e.noClasses);
-    return Z(v(e, "position"), r, i), m(v(e, "noClasses"), (l) => i.setClasses(l)), H(() => {
-      var l;
-      return o.value && ((l = r.value) == null ? void 0 : l.removeControl(i));
+    const r = s(O), o = s(j), a = k(!1), i = new te(a, e.noClasses);
+    return Z(v(e, "position"), r, i), m(v(e, "noClasses"), (n) => i.setClasses(n)), H(() => {
+      var n;
+      return o.value && ((n = r.value) == null ? void 0 : n.removeControl(i));
     }), () => {
-      var l;
+      var n;
       return a.value ? w(
         ge,
         { to: i.container },
-        (l = t.default) == null ? void 0 : l.call(t, {})
+        (n = t.default) == null ? void 0 : n.call(t, {})
       ) : M("custom-component");
     };
   }
@@ -602,7 +602,7 @@ const Te = /* @__PURE__ */ p({
   }
 });
 class Be {
-  constructor(t = "rgba(0,0,0,0.9)", r = 4 * window.devicePixelRatio, o = "#7cf859", a = "Monaco, Consolas, Courier, monospace", i = 60 * window.devicePixelRatio, l = 90 * window.devicePixelRatio, d = 0, u = 5 * window.devicePixelRatio, R = 100 * window.devicePixelRatio) {
+  constructor(t = "rgba(0,0,0,0.9)", r = 4 * window.devicePixelRatio, o = "#7cf859", a = "Monaco, Consolas, Courier, monospace", i = 60 * window.devicePixelRatio, n = 90 * window.devicePixelRatio, d = 0, u = 5 * window.devicePixelRatio, R = 100 * window.devicePixelRatio) {
     L(this, "frames", 0);
     L(this, "totalTime", 0);
     L(this, "totalFrames", 0);
@@ -612,7 +612,7 @@ class Be {
     L(this, "readOutput");
     L(this, "canvas");
     L(this, "eventHandlers", /* @__PURE__ */ new Map());
-    this.background = t, this.barWidth = r, this.color = o, this.font = a, this.graphHeight = i, this.graphWidth = l, this.graphTop = d, this.graphRight = u, this.width = R;
+    this.background = t, this.barWidth = r, this.color = o, this.font = a, this.graphHeight = i, this.graphWidth = n, this.graphTop = d, this.graphRight = u, this.width = R;
   }
   getDefaultPosition() {
     return W.TOP_RIGHT;
@@ -730,7 +730,7 @@ const _e = /* @__PURE__ */ p({
   },
   render() {
   }
-}), ze = /* @__PURE__ */ p({
+}), ke = /* @__PURE__ */ p({
   name: "MglGeolocationControl",
   props: {
     position: {
@@ -774,7 +774,7 @@ const _e = /* @__PURE__ */ p({
   },
   render() {
   }
-}), ke = /* @__PURE__ */ p({
+}), ze = /* @__PURE__ */ p({
   name: "MglNavigationControl",
   props: {
     position: {
@@ -853,7 +853,7 @@ const Fe = Object.values(ae), X = {
   slots: Object,
   setup(e, { slots: t }) {
     !e.path && e.type !== "text" && _("property `path` must be set on MaplibreButton");
-    const r = z(X[e.type] || X.default);
+    const r = k(X[e.type] || X.default);
     return m(() => e.type, (o) => r.value = X[o] || X.default), () => {
       var o, a;
       return e.type === "text" ? w("button", { type: "button" }, (o = t.default) == null ? void 0 : o.call(t, {})) : w(
@@ -901,12 +901,12 @@ const Ve = /* @__PURE__ */ p({
   slots: Object,
   emits: ["update:modelValue", "update:isOpen"],
   setup(e, { emit: t, slots: r }) {
-    const o = s(O), a = s(j), i = s(T), l = s(le), d = z(!1), u = z(e.isOpen === void 0 ? !1 : e.isOpen), R = Q(e.modelValue === void 0 ? e.mapStyles.length ? e.mapStyles[0] : null : e.modelValue), S = new te(d, !1), B = b.bind(null, !1);
+    const o = s(O), a = s(j), i = s(T), n = s(le), d = k(!1), u = k(e.isOpen === void 0 ? !1 : e.isOpen), R = Q(e.modelValue === void 0 ? e.mapStyles.length ? e.mapStyles[0] : null : e.modelValue), S = new te(d, !1), B = b.bind(null, !1);
     function h() {
       const f = o.value.getStyle().name;
-      for (let n = 0, c = e.mapStyles.length; n < c; n++)
-        if (e.mapStyles[n].name === f) {
-          C(e.mapStyles[n]);
+      for (let l = 0, c = e.mapStyles.length; l < c; l++)
+        if (e.mapStyles[l].name === f) {
+          C(e.mapStyles[l]);
           break;
         }
     }
@@ -920,11 +920,11 @@ const Ve = /* @__PURE__ */ p({
       a.value && (o.value.removeControl(S), o.value.off("style.load", h)), document.removeEventListener("click", B);
     });
     function C(f) {
-      var n;
-      ((n = R.value) == null ? void 0 : n.name) !== f.name && (l.emit("styleSwitched", f), o.value.setStyle(f.style, { diff: !1 }), e.modelValue === void 0 && (R.value = f), t("update:modelValue", f), b(!1));
+      var l;
+      ((l = R.value) == null ? void 0 : l.name) !== f.name && (n.emit("styleSwitched", f), o.value.setStyle(f.style, { diff: !1 }), e.modelValue === void 0 && (R.value = f), t("update:modelValue", f), b(!1));
     }
-    function b(f, n) {
-      de(n) ? n.stopPropagation() : de(f) && f.stopPropagation(), !(e.isOpen !== void 0 && e.isOpen === f || u.value === f) && (e.isOpen === void 0 ? (u.value = typeof f == "boolean" ? f : !u.value, t("update:isOpen", u.value)) : t("update:isOpen", typeof f == "boolean" ? f : !e.isOpen));
+    function b(f, l) {
+      de(l) ? l.stopPropagation() : de(f) && f.stopPropagation(), !(e.isOpen !== void 0 && e.isOpen === f || u.value === f) && (e.isOpen === void 0 ? (u.value = typeof f == "boolean" ? f : !u.value, t("update:isOpen", u.value)) : t("update:isOpen", typeof f == "boolean" ? f : !e.isOpen));
     }
     return () => {
       if (!d.value)
@@ -949,18 +949,18 @@ const Ve = /* @__PURE__ */ p({
           r.styleList ? r.styleList(f) : w(
             "div",
             { class: ["maplibregl-style-list", u.value ? "is-open" : ""] },
-            e.mapStyles.map((n) => {
+            e.mapStyles.map((l) => {
               var c, V;
-              return n.icon ? w(re, {
+              return l.icon ? w(re, {
                 type: ae.MDI,
-                path: n.icon.path,
-                class: ((c = R.value) == null ? void 0 : c.name) === n.name ? "is-active" : "",
-                onClick: () => C(n)
-              }, ce(n.label)) : w("button", {
+                path: l.icon.path,
+                class: ((c = R.value) == null ? void 0 : c.name) === l.name ? "is-active" : "",
+                onClick: () => C(l)
+              }, ce(l.label)) : w("button", {
                 type: "button",
-                class: ((V = R.value) == null ? void 0 : V.name) === n.name ? "is-active" : "",
-                onClick: () => C(n)
-              }, ce(n.label));
+                class: ((V = R.value) == null ? void 0 : V.name) === l.name ? "is-active" : "",
+                onClick: () => C(l)
+              }, ce(l.label));
             })
           )
         ]
@@ -976,6 +976,7 @@ const Ve = /* @__PURE__ */ p({
 	`
 }), Ue = /* @__PURE__ */ p({
   name: "MglMarker",
+  emits: ["click"],
   props: {
     coordinates: {
       type: [Object, Array],
@@ -991,11 +992,25 @@ const Ve = /* @__PURE__ */ p({
     pitchAlignment: String,
     scale: Number
   },
-  setup(e, { slots: t }) {
-    const r = s(O), o = Object.keys(e).filter((i) => e[i] !== void 0 && P.MARKER_OPTION_KEYS.indexOf(i) !== -1).reduce((i, l) => (i[l] = J(e[l]), i), {}), a = new Me(o);
-    return a.setLngLat(e.coordinates).addTo(r.value), A(fe, Q(a)), m(() => e.coordinates, (i) => a.setLngLat(i)), m(() => e.offset, (i) => a.setOffset(i || [0, 0])), m(() => e.pitchAlignment, (i) => a.setPitchAlignment(i || "auto")), m(() => e.rotationAlignment, (i) => a.setRotationAlignment(i || "auto")), H(a.remove.bind(a)), () => [
-      w("div", t.default ? t.default({}) : void 0)
-    ];
+  setup(e, { slots: t, emit: r }) {
+    const o = s(O), a = Object.keys(e).filter(
+      (n) => e[n] !== void 0 && P.MARKER_OPTION_KEYS.indexOf(n) !== -1
+    ).reduce((n, d) => (n[d] = J(e[d]), n), {}), i = new Me(a);
+    return i.setLngLat(e.coordinates).addTo(o.value), A(fe, Q(i)), i.getElement().addEventListener("click", () => {
+      r("click");
+    }), m(
+      () => e.coordinates,
+      (n) => i.setLngLat(n)
+    ), m(
+      () => e.offset,
+      (n) => i.setOffset(n || [0, 0])
+    ), m(
+      () => e.pitchAlignment,
+      (n) => i.setPitchAlignment(n || "auto")
+    ), m(
+      () => e.rotationAlignment,
+      (n) => i.setRotationAlignment(n || "auto")
+    ), H(i.remove.bind(i)), () => [w("div", t.default ? t.default({}) : void 0)];
   }
 }), Ge = /* @__PURE__ */ p({
   name: "MglPopup",
@@ -1047,7 +1062,7 @@ const Ve = /* @__PURE__ */ p({
     }
   },
   setup(e, { slots: t, emit: r }) {
-    const o = s(O), a = s(fe), i = z(), l = Object.keys(e).filter((u) => e[u] !== void 0 && P.POPUP_OPTION_KEYS.indexOf(u) !== -1).reduce((u, R) => (u[R] = J(e[R]), u), {}), d = new Ie(l);
+    const o = s(O), a = s(fe), i = k(), n = Object.keys(e).filter((u) => e[u] !== void 0 && P.POPUP_OPTION_KEYS.indexOf(u) !== -1).reduce((u, R) => (u[R] = J(e[R]), u), {}), d = new Ie(n);
     return a && a.value ? a.value.setPopup(d) : e.coordinates && o && d.setLngLat(e.coordinates).addTo(o.value), e.text && d.setText(e.text), d.on("open", () => r("open")), d.on("close", () => r("close")), m(() => e.coordinates, (u) => {
       u && d.setLngLat(u);
     }), m(() => e.text, (u) => d.setText(u || "")), m(() => e.offset, (u) => d.setOffset(u)), m(() => e.maxWidth, (u) => d.setMaxWidth(u)), me(() => {
@@ -1078,21 +1093,21 @@ const $ = class $ {
   static getSourceRef(t, r) {
     const o = typeof r == "string", a = String(t) + (o ? r : "");
     let i = $.REFS.get(a);
-    return i || (i = z(o ? null : void 0), $.REFS.set(a, i)), i;
+    return i || (i = k(o ? null : void 0), $.REFS.set(a, i)), i;
   }
 };
 L($, "REFS", /* @__PURE__ */ new Map());
 let E = $;
 function K(e, t, r, o, a) {
-  const i = s(O), l = s(T), d = s(le);
+  const i = s(O), n = s(T), d = s(le);
   function u() {
-    l.value && (i.value.addSource(t.sourceId, E.genSourceOpts(r, t, o)), e.value = i.value.getSource(t.sourceId));
+    n.value && (i.value.addSource(t.sourceId, E.genSourceOpts(r, t, o)), e.value = i.value.getSource(t.sourceId));
   }
   function R() {
     e.value = null;
   }
-  return m(l, u, { immediate: !0 }), i.value.on("style.load", u), d.on("styleSwitched", R), H(() => {
-    l.value && (a.unmount(), i.value.removeSource(t.sourceId)), i.value.off("style.load", u), d.off("styleSwitched", R);
+  return m(n, u, { immediate: !0 }), i.value.on("style.load", u), d.on("styleSwitched", R), H(() => {
+    n.value && (a.unmount(), i.value.removeSource(t.sourceId)), i.value.off("style.load", u), d.off("styleSwitched", R);
   });
 }
 const We = q({
@@ -1114,8 +1129,8 @@ const We = q({
   setup(e, { slots: t }) {
     const r = s(I), o = E.getSourceRef(r, e.sourceId), a = new Y();
     return A(N, e.sourceId), A(G, a), K(o, e, "canvas", We, a), m(v(e, "coordinates"), (i) => {
-      var l;
-      i && ((l = o.value) == null || l.setCoordinates(i));
+      var n;
+      i && ((n = o.value) == null || n.setCoordinates(i));
     }), () => [
       M("Canvas Source"),
       o.value && t.default ? t.default({}) : void 0
@@ -1162,8 +1177,8 @@ const We = q({
   setup(e, { slots: t }) {
     const r = s(I), o = E.getSourceRef(r, e.sourceId), a = new Y();
     return A(N, e.sourceId), A(G, a), K(o, e, "geojson", qe, a), m(v(e, "data"), (i) => {
-      var l;
-      return (l = o.value) == null ? void 0 : l.setData(i || { type: "FeatureCollection", features: [] });
+      var n;
+      return (n = o.value) == null ? void 0 : n.setData(i || { type: "FeatureCollection", features: [] });
     }), () => [
       M("GeoJSON Source"),
       o.value && t.default ? t.default({}) : void 0
@@ -1186,8 +1201,8 @@ const We = q({
   setup(e, { slots: t }) {
     const r = s(I), o = E.getSourceRef(r, e.sourceId), a = new Y();
     return A(N, e.sourceId), A(G, a), K(o, e, "image", Ke, a), m(v(e, "coordinates"), (i) => {
-      var l;
-      i && ((l = o.value) == null || l.setCoordinates(i));
+      var n;
+      i && ((n = o.value) == null || n.setCoordinates(i));
     }), () => [
       M("Image Source"),
       o.value && t.default ? t.default({}) : void 0
@@ -1294,11 +1309,11 @@ const We = q({
   setup(e, { slots: t }) {
     const r = s(I), o = E.getSourceRef(r, e.sourceId), a = new Y();
     return A(N, e.sourceId), A(G, a), K(o, e, "vector", tt, a), m(v(e, "tiles"), (i) => {
-      var l;
-      return (l = o.value) == null ? void 0 : l.setTiles(i || []);
+      var n;
+      return (n = o.value) == null ? void 0 : n.setTiles(i || []);
     }), m(v(e, "url"), (i) => {
-      var l;
-      return (l = o.value) == null ? void 0 : l.setUrl(i || "");
+      var n;
+      return (n = o.value) == null ? void 0 : n.setUrl(i || "");
     }), () => [
       M("Vector Source"),
       o.value && t.default ? t.default({}) : void 0
@@ -1321,8 +1336,8 @@ const We = q({
   setup(e, { slots: t }) {
     const r = s(I), o = E.getSourceRef(r, e.sourceId), a = new Y();
     return A(N, e.sourceId), A(G, a), K(o, e, "video", ot, a), m(v(e, "coordinates"), (i) => {
-      var l;
-      i && ((l = o.value) == null || l.setCoordinates(i));
+      var n;
+      i && ((n = o.value) == null || n.setCoordinates(i));
     }), () => [
       M("Video Source"),
       o.value && t.default ? t.default({}) : void 0
@@ -1330,20 +1345,20 @@ const We = q({
   }
 }), x = class x {
   static genLayerOpts(t, r, o, a) {
-    return Object.keys(o).filter((i) => o[i] !== void 0 && x.SOURCE_OPTS.indexOf(i) !== -1).reduce((i, l) => (i[l === "sourceLayer" ? "source-layer" : l] = J(o[l]), i), { type: r, source: o.source || a, id: t });
+    return Object.keys(o).filter((i) => o[i] !== void 0 && x.SOURCE_OPTS.indexOf(i) !== -1).reduce((i, n) => (i[n === "sourceLayer" ? "source-layer" : n] = J(o[n]), i), { type: r, source: o.source || a, id: t });
   }
   static registerLayerEvents(t, r, o) {
     if (o.props)
       for (let a = 0, i = x.LAYER_EVENTS.length; a < i; a++) {
-        const l = "on" + x.LAYER_EVENTS[a].charAt(0).toUpperCase() + x.LAYER_EVENTS[a].substr(1);
-        o.props[l] && t.on(x.LAYER_EVENTS[a], r, o.props[l]);
+        const n = "on" + x.LAYER_EVENTS[a].charAt(0).toUpperCase() + x.LAYER_EVENTS[a].substr(1);
+        o.props[n] && t.on(x.LAYER_EVENTS[a], r, o.props[n]);
       }
   }
   static unregisterLayerEvents(t, r, o) {
     if (o.props)
       for (let a = 0, i = x.LAYER_EVENTS.length; a < i; a++) {
-        const l = "on" + x.LAYER_EVENTS[a].charAt(0).toUpperCase() + x.LAYER_EVENTS[a].substr(1);
-        o.props[l] && t.off(x.LAYER_EVENTS[a], r, o.props[l]);
+        const n = "on" + x.LAYER_EVENTS[a].charAt(0).toUpperCase() + x.LAYER_EVENTS[a].substr(1);
+        o.props[n] && t.off(x.LAYER_EVENTS[a], r, o.props[n]);
       }
   }
 };
@@ -1429,8 +1444,8 @@ const it = /* @__PURE__ */ p({
       return;
     }
     const r = s(O), o = s(T), a = s(I), i = E.getSourceRef(a, e.source || t);
-    return F(e.layerId), m([o, i], ([l, d]) => {
-      l && (d || d === void 0) && r.value.addLayer(y.genLayerOpts(e.layerId, "background", e, t), e.before || void 0);
+    return F(e.layerId), m([o, i], ([n, d]) => {
+      n && (d || d === void 0) && r.value.addLayer(y.genLayerOpts(e.layerId, "background", e, t), e.before || void 0);
     }, { immediate: !0 }), () => M("Background Layer");
   }
 }), nt = /* @__PURE__ */ p({
@@ -1447,8 +1462,8 @@ const it = /* @__PURE__ */ p({
       _("Circle Layer: layer must be used inside source tag or source prop must be set");
       return;
     }
-    const r = k(), o = s(O), a = s(T), i = s(I), l = E.getSourceRef(i, e.source || t);
-    return F(e.layerId, r), m([a, l], ([d, u]) => {
+    const r = z(), o = s(O), a = s(T), i = s(I), n = E.getSourceRef(i, e.source || t);
+    return F(e.layerId, r), m([a, n], ([d, u]) => {
       d && (u || u === void 0) && (o.value.addLayer(y.genLayerOpts(e.layerId, "circle", e, t), e.before || void 0), y.registerLayerEvents(o.value, e.layerId, r.vnode));
     }, { immediate: !0 }), () => M("Circle Layer");
   }
@@ -1466,8 +1481,8 @@ const it = /* @__PURE__ */ p({
       _("Fill Layer: layer must be used inside source tag or source prop must be set");
       return;
     }
-    const r = k(), o = s(O), a = s(T), i = s(I), l = E.getSourceRef(i, e.source || t);
-    return F(e.layerId, r), m([a, l], ([d, u]) => {
+    const r = z(), o = s(O), a = s(T), i = s(I), n = E.getSourceRef(i, e.source || t);
+    return F(e.layerId, r), m([a, n], ([d, u]) => {
       d && (u || u === void 0) && (o.value.addLayer(y.genLayerOpts(e.layerId, "fill", e, t), e.before || void 0), y.registerLayerEvents(o.value, e.layerId, r.vnode));
     }, { immediate: !0 }), () => M("Fill Layer");
   }
@@ -1485,8 +1500,8 @@ const it = /* @__PURE__ */ p({
       _("Fill Extrude Layer: layer must be used inside source tag or source prop must be set");
       return;
     }
-    const r = k(), o = s(O), a = s(T), i = s(I), l = E.getSourceRef(i, e.source || t);
-    return F(e.layerId, r), m([a, l], ([d, u]) => {
+    const r = z(), o = s(O), a = s(T), i = s(I), n = E.getSourceRef(i, e.source || t);
+    return F(e.layerId, r), m([a, n], ([d, u]) => {
       d && (u || u === void 0) && (o.value.addLayer(y.genLayerOpts(e.layerId, "fill-extrusion", e, t), e.before || void 0), y.registerLayerEvents(o.value, e.layerId, r.vnode));
     }, { immediate: !0 }), () => M("Fill Extrusion Layer");
   }
@@ -1504,8 +1519,8 @@ const it = /* @__PURE__ */ p({
       _("Heatmap Layer: layer must be used inside source tag or source prop must be set");
       return;
     }
-    const r = k(), o = s(O), a = s(T), i = s(I), l = E.getSourceRef(i, e.source || t);
-    return F(e.layerId, r), m([a, l], ([d, u]) => {
+    const r = z(), o = s(O), a = s(T), i = s(I), n = E.getSourceRef(i, e.source || t);
+    return F(e.layerId, r), m([a, n], ([d, u]) => {
       d && (u || u === void 0) && (o.value.addLayer(y.genLayerOpts(e.layerId, "heatmap", e, t), e.before || void 0), y.registerLayerEvents(o.value, e.layerId, r.vnode));
     }, { immediate: !0 }), () => M("Heatmap Layer");
   }
@@ -1523,8 +1538,8 @@ const it = /* @__PURE__ */ p({
       _("Hillshade Layer: layer must be used inside source tag or source prop must be set");
       return;
     }
-    const r = k(), o = s(O), a = s(T), i = s(I), l = E.getSourceRef(i, e.source || t);
-    return F(e.layerId, r), m([a, l], ([d, u]) => {
+    const r = z(), o = s(O), a = s(T), i = s(I), n = E.getSourceRef(i, e.source || t);
+    return F(e.layerId, r), m([a, n], ([d, u]) => {
       d && (u || u === void 0) && (o.value.addLayer(y.genLayerOpts(e.layerId, "hillshade", e, t), e.before || void 0), y.registerLayerEvents(o.value, e.layerId, r.vnode));
     }, { immediate: !0 }), () => M("Hillshade Layer");
   }
@@ -1542,8 +1557,8 @@ const it = /* @__PURE__ */ p({
       _("Line Layer: layer must be used inside source tag or source prop must be set");
       return;
     }
-    const r = k(), o = s(O), a = s(T), i = s(I), l = E.getSourceRef(i, e.source || t);
-    return F(e.layerId, r), m([a, l], ([d, u]) => {
+    const r = z(), o = s(O), a = s(T), i = s(I), n = E.getSourceRef(i, e.source || t);
+    return F(e.layerId, r), m([a, n], ([d, u]) => {
       d && (u || u === void 0) && (o.value.addLayer(y.genLayerOpts(e.layerId, "line", e, t), e.before || void 0), y.registerLayerEvents(o.value, e.layerId, r.vnode));
     }, { immediate: !0 }), () => M("Line Layer");
   }
@@ -1561,8 +1576,8 @@ const it = /* @__PURE__ */ p({
       _("Raster Layer: layer must be used inside source tag or source prop must be set");
       return;
     }
-    const r = k(), o = s(O), a = s(T), i = s(I), l = E.getSourceRef(i, e.source || t);
-    return F(e.layerId, r), m([a, l], ([d, u]) => {
+    const r = z(), o = s(O), a = s(T), i = s(I), n = E.getSourceRef(i, e.source || t);
+    return F(e.layerId, r), m([a, n], ([d, u]) => {
       d && (u || u === void 0) && (o.value.addLayer(y.genLayerOpts(e.layerId, "raster", e, t), e.before || void 0), y.registerLayerEvents(o.value, e.layerId, r.vnode));
     }, { immediate: !0 }), () => M("Raster Layer");
   }
@@ -1580,8 +1595,8 @@ const it = /* @__PURE__ */ p({
       _("Symbol Layer: layer must be used inside source tag or source prop must be set");
       return;
     }
-    const r = k(), o = s(O), a = s(T), i = s(I), l = E.getSourceRef(i, e.source || t);
-    return F(e.layerId, r), m([a, l], ([d, u]) => {
+    const r = z(), o = s(O), a = s(T), i = s(I), n = E.getSourceRef(i, e.source || t);
+    return F(e.layerId, r), m([a, n], ([d, u]) => {
       d && (u || u === void 0) && (o.value.addLayer(y.genLayerOpts(e.layerId, "symbol", e, t), e.before || void 0), y.registerLayerEvents(o.value, e.layerId, r.vnode));
     }, { immediate: !0 }), () => M("Symbol Layer");
   }
@@ -1598,14 +1613,14 @@ const it = /* @__PURE__ */ p({
   MglFrameRateControl: _e,
   MglFullscreenControl: He,
   MglGeoJsonSource: Ye,
-  MglGeolocationControl: ze,
+  MglGeolocationControl: ke,
   MglHeatmapLayer: ut,
   MglHillshadeLayer: ct,
   MglImageSource: $e,
   MglLineLayer: dt,
   MglMap: we,
   MglMarker: Ue,
-  MglNavigationControl: ke,
+  MglNavigationControl: ze,
   MglPopup: Ge,
   MglRasterDemSource: et,
   MglRasterLayer: mt,
@@ -1635,14 +1650,14 @@ export {
   _e as MglFrameRateControl,
   He as MglFullscreenControl,
   Ye as MglGeoJsonSource,
-  ze as MglGeolocationControl,
+  ke as MglGeolocationControl,
   ut as MglHeatmapLayer,
   ct as MglHillshadeLayer,
   $e as MglImageSource,
   dt as MglLineLayer,
   we as MglMap,
   Ue as MglMarker,
-  ke as MglNavigationControl,
+  ze as MglNavigationControl,
   Ge as MglPopup,
   et as MglRasterDemSource,
   mt as MglRasterLayer,
