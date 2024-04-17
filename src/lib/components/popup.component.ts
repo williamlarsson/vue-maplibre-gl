@@ -52,7 +52,7 @@ export default /*#__PURE__*/ defineComponent({
       required: false
     }
   },
-  async setup(props, { slots, emit }) {
+  setup(props, { slots, emit }) {
     const map = inject(mapSymbol);
     const marker = inject(markerSymbol);
     const root = ref();

@@ -24,6 +24,9 @@
 				<mgl-style-switch-control :map-styles="mapStyles" :position="controlPosition"/>
 
 				<mgl-marker :coordinates="markerCoordinates" color="#cc0000" :scale="0.5"/>
+				<MglPopup :coordinates="markerCoordinates" @close="onClose">
+					<p>I'm a popup</p>
+				</MglPopup>
 
 				<mgl-geo-json-source source-id="geojson" :data="geoJsonSource.data">
 					<mgl-line-layer
@@ -86,7 +89,7 @@
 
 <script lang="ts">
 	import { defineComponent, ref, toRef, watch } from 'vue';
-	import { MglDefaults, MglEvent, Position, StyleSwitchItem, useMap, ValidLanguages } from '@/lib/main';
+	import { MglDefaults, MglEvent, MglPopup, Position, StyleSwitchItem, useMap, ValidLanguages } from '@/lib/main';
 	import { mdiCursorDefaultClick } from '@mdi/js';
 	import { CircleLayerSpecification, LineLayerSpecification, LngLatLike, MapLayerMouseEvent } from 'maplibre-gl';
 	import MglMap from '@/lib/components/map.component';
@@ -112,9 +115,10 @@
 	export default defineComponent({
 		name      : 'App',
 		components: {
-			MglCircleLayer, MglVectorSource, MglLineLayer, MglGeoJsonSource, MglMarker, MglStyleSwitchControl, MglButton, MglCustomControl,
-			MglGeolocationControl, MglScaleControl, MglNavigationControl, MglAttributionControl, MglFullscreenControl, MglFrameRateControl, MglMap
-		},
+    MglCircleLayer, MglVectorSource, MglLineLayer, MglGeoJsonSource, MglMarker, MglStyleSwitchControl, MglButton, MglCustomControl,
+    MglGeolocationControl, MglScaleControl, MglNavigationControl, MglAttributionControl, MglFullscreenControl, MglFrameRateControl, MglMap,
+    MglPopup
+},
 		setup() {
 
 			const map               = useMap(),
@@ -219,7 +223,13 @@
 					'circle-color' : '#1b5e20'
 				} as CircleLayerSpecification['paint']
 			};
-		}
+		},
+		methods: {
+			onClose() {
+				console.log("onClose")
+				
+			}
+		},
 	});
 </script>
 
