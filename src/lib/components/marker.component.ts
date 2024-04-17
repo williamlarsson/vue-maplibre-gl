@@ -8,6 +8,7 @@ import {
   watch,
   shallowRef,
   h,
+  onMounted,
 } from "vue";
 import {
   LngLatLike,
@@ -27,6 +28,7 @@ export default /*#__PURE__*/ defineComponent({
       type: [Object, Array] as unknown as PropType<LngLatLike>,
       required: true,
     },
+    element: Object as PropType<HTMLElement>,
     offset: [Object, Array] as PropType<PointLike>,
     anchor: String as PropType<PositionAnchor>,
     color: String as PropType<string>,
@@ -77,6 +79,8 @@ export default /*#__PURE__*/ defineComponent({
 
     onBeforeUnmount(marker.remove.bind(marker));
 
-    return () => [h("div", slots.default ? slots.default({}) : undefined)];
+    return () => {
+      return h("p", {}, slots.default ? slots.default({}) : undefined);
+    };
   },
 });

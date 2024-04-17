@@ -1,5 +1,5 @@
-import { PropType } from 'vue';
-import { LngLatLike, Offset, PositionAnchor } from 'maplibre-gl';
+import { PropType } from "vue";
+import { LngLatLike, Offset, PositionAnchor } from "maplibre-gl";
 declare const _default: import("vue").DefineComponent<{
     coordinates: {
         type: PropType<LngLatLike>;

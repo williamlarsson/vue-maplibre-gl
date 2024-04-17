@@ -982,6 +982,7 @@ const Ve = /* @__PURE__ */ p({
       type: [Object, Array],
       required: !0
     },
+    element: Object,
     offset: [Object, Array],
     anchor: String,
     color: String,
@@ -1010,7 +1011,7 @@ const Ve = /* @__PURE__ */ p({
     ), m(
       () => e.rotationAlignment,
       (n) => i.setRotationAlignment(n || "auto")
-    ), H(i.remove.bind(i)), () => [w("div", t.default ? t.default({}) : void 0)];
+    ), H(i.remove.bind(i)), () => w("p", {}, t.default ? t.default({}) : void 0);
   }
 }), Ge = /* @__PURE__ */ p({
   name: "MglPopup",
@@ -1062,10 +1063,24 @@ const Ve = /* @__PURE__ */ p({
     }
   },
   setup(e, { slots: t, emit: r }) {
-    const o = s(O), a = s(fe), i = k(), n = Object.keys(e).filter((u) => e[u] !== void 0 && P.POPUP_OPTION_KEYS.indexOf(u) !== -1).reduce((u, R) => (u[R] = J(e[R]), u), {}), d = new Ie(n);
-    return a && a.value ? a.value.setPopup(d) : e.coordinates && o && d.setLngLat(e.coordinates).addTo(o.value), e.text && d.setText(e.text), d.on("open", () => r("open")), d.on("close", () => r("close")), m(() => e.coordinates, (u) => {
-      u && d.setLngLat(u);
-    }), m(() => e.text, (u) => d.setText(u || "")), m(() => e.offset, (u) => d.setOffset(u)), m(() => e.maxWidth, (u) => d.setMaxWidth(u)), me(() => {
+    const o = s(O), a = s(fe), i = k(), n = Object.keys(e).filter(
+      (u) => e[u] !== void 0 && P.POPUP_OPTION_KEYS.indexOf(u) !== -1
+    ).reduce((u, R) => (u[R] = J(e[R]), u), {}), d = new Ie(n);
+    return a && a.value ? a.value.setPopup(d) : e.coordinates && o && d.setLngLat(e.coordinates).addTo(o.value), e.text && d.setText(e.text), d.on("open", () => r("open")), d.on("close", () => r("close")), m(
+      () => e.coordinates,
+      (u) => {
+        u && d.setLngLat(u);
+      }
+    ), m(
+      () => e.text,
+      (u) => d.setText(u || "")
+    ), m(
+      () => e.offset,
+      (u) => d.setOffset(u)
+    ), m(
+      () => e.maxWidth,
+      (u) => d.setMaxWidth(u)
+    ), me(() => {
       i.value && !e.text && d.setDOMContent(i.value);
     }), () => [
       w("div", { ref: i }, t.default ? t.default() : void 0)

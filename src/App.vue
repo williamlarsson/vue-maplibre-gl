@@ -23,7 +23,8 @@
 				</mgl-custom-control>
 				<mgl-style-switch-control :map-styles="mapStyles" :position="controlPosition"/>
 
-				<mgl-marker :coordinates="markerCoordinates" color="#cc0000" :scale="1.2" />
+				<mgl-marker v-if="customMarkerElement" :coordinates="markerCoordinates" color="#cc0000" :scale="1.2" :element="customMarkerElement" />
+				<!-- <mgl-marker :coordinates="markerCoordinates" color="#cc0000" :scale="1.2" /> -->
 				<mgl-popup :coordinates="popupCoordinates" >
 					<p>I'm a popup</p>
 				</mgl-popup>
@@ -223,9 +224,23 @@
 					'circle-radius': 5,
 					'circle-color' : '#1b5e20'
 				} as CircleLayerSpecification['paint']
+				
 			};
 		},
-	
+	data() {
+		return {
+			customMarkerElement : null as HTMLElement | null,
+		}
+	},
+	mounted () {
+		const el = document.createElement('div');
+      el.className = 'custom-marker';
+			el.innerHTML = 'custom-marker';
+      el.style.width = '25px';
+      el.style.height = '25px';
+      el.style.backgroundSize = 'cover';
+      this.customMarkerElement = el;;
+	},
 	});
 </script>
 
